@@ -5,7 +5,7 @@
 <h2>Submit Form Data</h2>
 
 <form method="post" action="@Url.Action("SubmitFormData", "Home")">
-    @Html.AntiForgeryToken() <!-- Защита от CSRF -->
+    @Html.AntiForgeryToken()
     <label for="dataValue">Data Value:</label>
     <input type="text" id="dataValue" name="dataValue" /><br />
     <label for="expirationDate">Expiration Date:</label>
