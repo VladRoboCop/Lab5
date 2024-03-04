@@ -25,7 +25,7 @@ namespace MyAspNetApp.Middleware
             }
             catch (Exception ex)
             {
-                // Логирование ошибок
+
                 _logger.LogError(ex, "An error occurred while processing the request.");
                 throw;
             }
