@@ -10,7 +10,7 @@
     <p>FormData value: @ViewBag.FormData</p>
     <p>Expires at: @ViewBag.ExpiresAt</p>
     <form method="post" action="@Url.Action("ClearCookies", "Home")">
-        @Html.AntiForgeryToken() <!-- Защита от CSRF -->
+        @Html.AntiForgeryToken()
         <button type="submit">Clear Cookies</button>
     </form>
     <br />
