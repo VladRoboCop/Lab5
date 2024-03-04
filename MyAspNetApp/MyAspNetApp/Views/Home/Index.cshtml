@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Submit Form Data</h2>
+
+<form method="post" action="@Url.Action("SubmitFormData", "Home")">
+    @Html.AntiForgeryToken() <!-- Защита от CSRF -->
+    <label for="dataValue">Data Value:</label>
+    <input type="text" id="dataValue" name="dataValue" /><br />
+    <label for="expirationDate">Expiration Date:</label>
+    <input type="datetime-local" id="expirationDate" name="expirationDate" /><br />
+    <button type="submit">Submit</button>
+</form>
+
+

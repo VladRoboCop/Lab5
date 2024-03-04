@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Check Cookies";
+}
+
+<h2>Check Cookies</h2>
+
+@if (ViewBag.HasFormData)
+{
+    <p>FormData exists in Cookies.</p>
+    <p>FormData value: @ViewBag.FormData</p>
+    <p>Expires at: @ViewBag.ExpiresAt</p>
+    <form method="post" action="@Url.Action("ClearCookies", "Home")">
+        @Html.AntiForgeryToken() <!-- Защита от CSRF -->
+        <button type="submit">Clear Cookies</button>
+    </form>
+    <br />
+    <a href="@Url.Action("Index", "Home")">Back to Input Form</a>
+}
+else
+{
+    <p>FormData does not exist in Cookies.</p>
+}
