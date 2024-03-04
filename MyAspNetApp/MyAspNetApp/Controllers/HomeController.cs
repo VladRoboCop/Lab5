@@ -14,7 +14,7 @@ namespace MyAspNetApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult SubmitFormData(string dataValue, DateTime expirationDate)
         {
-            // Сохранение данных в Cookies
+
             Response.Cookies.Append("FormData", dataValue, new CookieOptions
             {
                 Expires = expirationDate,
@@ -22,7 +22,7 @@ namespace MyAspNetApp.Controllers
                 Secure = true
             });
 
-            // Добавляем информацию о сроке действия данных
+
             Response.Cookies.Append("FormData_ExpiresAt", expirationDate.ToString(), new CookieOptions
             {
                 Expires = expirationDate,
@@ -36,10 +36,9 @@ namespace MyAspNetApp.Controllers
 
         public IActionResult CheckCookies()
         {
-            // Проверка наличия значения в Cookies
+
             ViewBag.HasFormData = Request.Cookies.ContainsKey("FormData");
 
-            // Получение данных из Cookies и их срока действия, если они есть
             if (ViewBag.HasFormData)
             {
                 ViewBag.FormData = Request.Cookies["FormData"];
@@ -53,7 +52,7 @@ namespace MyAspNetApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult ClearCookies()
         {
-            // Удаление Cookies
+
             Response.Cookies.Delete("FormData");
             Response.Cookies.Delete("FormData_ExpiresAt");
 
